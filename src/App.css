@@ -1,38 +1,274 @@
-.App {
+/* App.css */
+
+:root {
+  --primary-color: #61dafb;
+  --primary-dark: #4fa8d5;
+  --bg-color: #1a1a1a;
+  --bg-light: #2a2a2a;
+  --text-color: #e0e0e0;
+  --text-muted: #888;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 60%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--bg-light);
+  color: var(--text-color);
+  border: 1px solid var(--text-muted);
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 4px;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--primary-dark);
+}
+
+.user-profile {
+  background-color: var(--bg-light);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.user-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--primary-color);
+}
+
+.user-username {
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.user-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.stat {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.stat-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.stat-label {
+  font-size: 14px;
+  color: var(--text-muted);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.repo-container {
+  margin-top: 20px;
+}
+
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.repo-item {
+  background-color: var(--bg-light);
+  border-radius: 8px;
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.repo-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(97, 218, 251, 0.2);
+}
+
+.repo-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.repo-name a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.repo-name a:hover {
+  color: var(--primary-dark);
+}
+
+.repo-description {
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.repo-stats {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.load-more-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.load-more-button:hover {
+  background-color: var(--primary-dark);
+}
+
+.load-more-button:disabled {
+  background-color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.error {
+  color: #ff6b6b;
+  text-align: center;
+  font-weight: bold;
+}
+
+.loading {
+  text-align: center;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.view-profile-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.view-profile-button:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Footer Styles */
+.footer {
+  flex-shrink: 0;
+  text-align: center;
+  padding: 20px;
+  background-color: var(--bg-light);
+  color: var(--text-muted);
+  margin-top: auto;
+}
+
+.footer p {
+  margin-bottom: 10px;
+}
+
+.footer-icons {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.footer-icons a {
+  display: inline-block;
+  transition: transform 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.footer-icons a:hover {
+  transform: scale(1.1);
+}
+
+.footer-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  input[type="text"] {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 80%;
+    margin-left: 0;
+  }
+
+  .repo-grid {
+    grid-template-columns: 1fr;
   }
 }
